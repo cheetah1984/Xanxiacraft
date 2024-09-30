@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "xanxiacraft:spiritstone"
+    }
+  },
+  "result": {
+    "item":"xanxiacraft:spiritstone_block",
+    "count": 1
+  }
+
+}
