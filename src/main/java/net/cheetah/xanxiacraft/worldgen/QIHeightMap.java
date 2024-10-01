@@ -1,18 +1,23 @@
 package net.cheetah.xanxiacraft.worldgen;
-
 import net.minecraft.util.Mth;
+import net.minecraftforge.event.level.ChunkDataEvent;
+
+import static net.cheetah.xanxiacraft.worldgen.NoiseUtil.multiplyWithPerlinNoise;
 
 public class QIHeightMap {
-    private static final int BASE_QI = 100;
+
+    private static final int BASE_QI = 10;
 
     public static int getQiForChunk(int chunkx, int chunkz) {
 
-        int baseQiValue = BASE_QI + (int) (Math.sin(chunkx * 0.1) * 200);
 
-        int increment = 2 + (int) (Math.cos(chunkz * 0.1) * 30);
+        int baseQiValue = BASE_QI + (int) (Math.sin(chunkx) * 3);
 
-        int setQI = baseQiValue + (chunkx * increment);
+        int increment = 2 + (int) (Math.cos(chunkz) * 2);
 
-        return Mth.clamp(setQI,0,2560);
+        int setQi = baseQiValue + (chunkx * increment) * (int) multiplyWithPerlinNoise(BASE_QI,chunkx,chunkz) ;
+
+        return Mth.clamp(setQi,0,2560000);
+
     }
 }

@@ -16,6 +16,8 @@ public class WorldGenerationHandler {
     public static void onChunkGenerate(ChunkEvent.Load event) {
         LevelChunk chunk = (LevelChunk) event.getChunk();
 
+
+
         int customqi = QIHeightMap.getQiForChunk((int) chunk.getPos().x, (int) chunk.getPos().z);
 
         chunk.getCapability(ChunkCapability.CHUNK_QI_CAPABILITY).ifPresent(chunkQI -> {chunkQI.setQi(customqi);
