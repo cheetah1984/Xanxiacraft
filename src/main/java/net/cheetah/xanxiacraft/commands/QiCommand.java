@@ -24,9 +24,9 @@ public class QiCommand {
 
 
         chunk.getCapability(ChunkCapability.CHUNK_QI_CAPABILITY).ifPresent(chunkQI -> {
-            int setQI = chunkQI.getQI();
+            int setQi = chunkQI.getQi();
 
-            source.sendSuccess(() -> Component.literal("Current Chunk QI:" + setQI), false);
+            source.sendSuccess(() -> Component.literal("Current Chunk QI:" + setQi), false);
         });
 
     return 1;

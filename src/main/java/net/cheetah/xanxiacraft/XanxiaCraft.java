@@ -67,7 +67,7 @@ public class XanxiaCraft {
             int customqi = QIHeightMap.getQiForChunk(chunkx, chunkz);
 
             chunk.getCapability(ChunkCapability.CHUNK_QI_CAPABILITY).ifPresent(chunkQI -> {
-                chunkQI.setQI(customqi);
+                chunkQI.setQi(customqi);
             });
         }
     }
