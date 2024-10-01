@@ -1,5 +1,6 @@
 package net.cheetah.xanxiacraft.capability;
 import net.cheetah.xanxiacraft.XanxiaCraft;
+import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -22,4 +23,9 @@ public class ChunkCapability {
             event.addCapability(new ResourceLocation("xanxiacraft","chunk_qi"), new ChunkQIProvider());
         }
     }
+    @SubscribeEvent
+    public static void registerCapabilities(RegisterCapabilitiesEvent event) {
+        event.register(IChunkQI.class);
+    }
+
 }

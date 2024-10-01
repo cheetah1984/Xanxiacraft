@@ -53,6 +53,7 @@ public class XanxiaCraft {
 
     }
 
+    @SubscribeEvent
     public static void onChunkLoad(ChunkEvent.Load event) {
 
         ChunkAccess chunkAccess = event.getChunk();

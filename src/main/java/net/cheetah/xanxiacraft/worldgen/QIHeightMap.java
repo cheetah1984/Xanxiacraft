@@ -11,8 +11,8 @@ public class QIHeightMap {
 
         int increment = 2 + (int) (Math.cos(chunkz * 0.1) * 3);
 
-        int qiValue = baseQiValue + (chunkx * increment);
+        int setQI = baseQiValue + (chunkx * increment);
 
-        return Mth.clamp(qiValue,0,256);
+        return Mth.clamp(setQI,0,256);
     }
 }

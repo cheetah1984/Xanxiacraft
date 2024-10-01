@@ -1,11 +1,10 @@
 package net.cheetah.xanxiacraft.commands;
-
+import net.minecraft.network.chat.Component;
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
 import net.cheetah.xanxiacraft.capability.ChunkCapability;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
-import net.minecraft.network.chat.Component;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.phys.Vec3;
@@ -19,17 +18,17 @@ public class QiCommand {
         );
     }
     private static int executeCheckQi(CommandSourceStack source) {
-        BlockPos pos = source.getPosition();
+        Vec3 positionVec = source.getPosition();
+        BlockPos pos = new BlockPos((int) positionVec.x, (int) positionVec.y, (int) positionVec.z);
         LevelChunk chunk = source.getLevel().getChunkAt(pos);
 
 
         chunk.getCapability(ChunkCapability.CHUNK_QI_CAPABILITY).ifPresent(chunkQI -> {
-            int qiValue = chunkQI.getQI();
+            int setQI = chunkQI.getQI();
 
-            source.sendSuccess(Component.literal("Current Chunk QI:" + qiValue), false);
+            source.sendSuccess(() -> Component.literal("Current Chunk QI:" + setQI), false);
         });
 
-        return 1;
-
+    return 1;
     }
 }
